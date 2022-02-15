@@ -9,6 +9,7 @@ class Pessoa:
 if __name__ == "__main__":
     renzo = Pessoa(nome = "Renzo")
     luciano = Pessoa(renzo, nome='Luciano')
+    #Luciano is a "pessoa" and has the complex attribute "filho" which is also a "pessoa"
     print(Pessoa.cumprimentar(luciano))
     print(id(luciano))
     print(luciano.cumprimentar())
@@ -16,3 +17,8 @@ if __name__ == "__main__":
     print(luciano.idade)
     for filho in luciano.filhos:
         print(filho.nome)
+    luciano.sobrenome = "Ramalho"
+    del luciano.filhos
+    #The good practice is to avoid creating dynamic attributes, but it might be useful in some contexts
+    print(luciano.__dict__)
+    print(renzo.__dict__)
