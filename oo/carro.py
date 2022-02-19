@@ -25,16 +25,16 @@ O   L
     >>> motor.velocidade
     1
     >>> motor.acelerar()
-    >>> motor.velocidade()
+    >>> motor.velocidade
     2
     >>> motor.acelerar
     >>> motor.velocidade
     3
     >>> motor.frear()
-    >>> motor.velocidade()
+    >>> motor.velocidade
     1
     >>> motor.frear()
-    >>> motor.velocidade()
+    >>> motor.velocidade
     0
     >>> direcao = Direcao()
     >>> direcao.valor
@@ -50,16 +50,16 @@ O   L
     "Oeste"
     >>> direcao.girar_a_direita()
     >>> direcao.valor
-    "Norte" #mod direcao = 0
+    "Norte"
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
-    "Oeste" #mod direcao = 1
+    "Oeste"
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
-    "Sul" #mod direcao = 2
+    "Sul"
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
-    "Leste" #mod direcao = 3
+    "Leste"
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     "Norte"
@@ -74,7 +74,7 @@ class Motor:
     def acelerar(self):
         self.velocidade += 1
 
-    def desacelerar(self):
+    def frear(self):
         if self.velocidade <= 1:
             self.velocidade = 0
         else:
@@ -83,13 +83,49 @@ class Motor:
     def velocidade(self):
         return self.velocidade()
 
+class Direcao:
+
+    def __init__(self):
+        self.valor = 0
+
+    def girar_a_direita(self):
+        self.valor = numero(self.valor) + 1
+        self.valor = rosa_dos_ventos(self.valor)
+
+    def girar_a_esquerda(self):
+        self.valor = numero(self.valor) -1
+        self.valor = rosa_dos_ventos(self.valor)
+
+    def numero(self):
+        if self.valor = "Norte"
+            self.valor = 0
+        elif self.valor = "Leste"
+            self.valor = 1
+        elif self.valor = "Sul"
+            self.valor = 2
+        elif self.valor = "Oeste"
+            self.valor = 3
+        else
+            self.valor = "Direção inválida"
+
+    def rosa_dos_ventos(self):
+        if self.valor % 4 = 0
+            self.valor = "Norte"
+        elif self.valor % 4 = 1
+            self.valor = "Leste"
+        elif self.valor % 4 = 2
+            self.valor = "Sul"
+        elif self.valor % 4 = 3
+            self.valor = "Oeste"
+
+
+
 class Carro:
     pneus = 5
 
-    def __init__(self, *passageiros, modelo=None, motor, direcao):
-        self.modelo = modelo
+    def __init__(self):
         self.motor = Motor
-        self.direcao = direcao
+        self.direcao = Direcao
         self.passageiros = list(Pessoa)
 
 
