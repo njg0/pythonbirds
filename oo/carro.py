@@ -67,27 +67,31 @@ O   L
 """
 from pessoa import Pessoa
 
+class Motor:
+    def __init__(self):
+        self.velocidade = 0
+
+    def acelerar(self):
+        self.velocidade += 1
+
+    def desacelerar(self):
+        if self.velocidade <= 1:
+            self.velocidade = 0
+        else:
+            self.velocidade -= 2
+
+    def velocidade(self):
+        return self.velocidade()
 
 class Carro:
     pneus = 5
 
-    def __init__(self, *passageiros, modelo=None, motor=0, direcao=0):
+    def __init__(self, *passageiros, modelo=None, motor, direcao):
         self.modelo = modelo
-        self.motor = motor
+        self.motor = Motor
         self.direcao = direcao
         self.passageiros = list(Pessoa)
 
-    def testar_motor(self):
-        return self.motor
-
-    def acelerar(self):
-        self.motor = self.motor + 1
-
-    def desacelerar(self):
-        if self.motor <= 1:
-            self.motor = 0
-        else:
-            self.motor = self.motor - 2
 
     def check_direcao(self):
         return self.direcao
