@@ -96,6 +96,12 @@ class Direcao:
         else:
             self.valor = 'Direção inválida'
 
+        #Uma solução mais elegante para tratar a direção
+        #Proposta pelo professor Renzo seria criar dois dicionários
+        #Um com as direções apontando o sentido horário
+        #E outro com as direções apontando sentido anti-horário
+        #Vou manter o programa do jeito que está por que foi essa solução
+        #Que eu mesmo desenvolvi e está satisfatória
         if direcao == 'Direita':
             self.valor += 1
         else:
