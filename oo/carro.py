@@ -80,45 +80,40 @@ class Motor:
         else:
             self.velocidade -= 2
 
-    def velocidade(self):
-        return self.velocidade()
-
 class Direcao:
 
     def __init__(self):
         self.valor = 0
 
     def girar_a_direita(self):
-        self.valor = numero(self.valor) + 1
-        self.valor = rosa_dos_ventos(self.valor)
+        self.valor = self.numero() + 1
+        self.valor = self.rosa_dos_ventos()
 
     def girar_a_esquerda(self):
         self.valor = numero(self.valor) -1
         self.valor = rosa_dos_ventos(self.valor)
 
     def numero(self):
-        if self.valor = "Norte"
+        if self.valor = "Norte":
             self.valor = 0
-        elif self.valor = "Leste"
+        elif self.valor = "Leste":
             self.valor = 1
-        elif self.valor = "Sul"
+        elif self.valor = "Sul":
             self.valor = 2
-        elif self.valor = "Oeste"
+        elif self.valor = "Oeste":
             self.valor = 3
-        else
+        else:
             self.valor = "Direção inválida"
 
     def rosa_dos_ventos(self):
-        if self.valor % 4 = 0
+        if self.valor % 4 = 0:
             self.valor = "Norte"
-        elif self.valor % 4 = 1
+        elif self.valor % 4 = 1:
             self.valor = "Leste"
-        elif self.valor % 4 = 2
+        elif self.valor % 4 = 2:
             self.valor = "Sul"
-        elif self.valor % 4 = 3
+        elif self.valor % 4 = 3:
             self.valor = "Oeste"
-
-
 
 class Carro:
     pneus = 5
@@ -128,7 +123,6 @@ class Carro:
         self.direcao = Direcao
         self.passageiros = list(Pessoa)
 
-
     def check_direcao(self):
         return self.direcao
 
@@ -137,4 +131,3 @@ class Carro:
 
     def virar_esquerda(self):
         self.direcao = self.direcao - 1
-
