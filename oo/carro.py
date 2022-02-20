@@ -27,7 +27,7 @@ O   L
     >>> motor.acelerar()
     >>> motor.velocidade
     2
-    >>> motor.acelerar
+    >>> motor.acelerar()
     >>> motor.velocidade
     3
     >>> motor.frear()
@@ -38,32 +38,31 @@ O   L
     0
     >>> direcao = Direcao()
     >>> direcao.valor
-    "Norte"
-    >>> direcao.girar_a_direita()
+    'Norte'
+    >>> direcao.girar('Direita')
     >>> direcao.valor
-    "Leste"
-    >>> direcao.girar_a_direita()
+    'Leste'
+    >>> direcao.girar('Direita')
     >>> direcao.valor
-    "Sul"
-    >>> direcao.girar_a_direita()
+    'Sul'
+    >>> direcao.girar('Direita')
     >>> direcao.valor
-    "Oeste"
-    >>> direcao.girar_a_direita()
+    'Oeste'
+    >>> direcao.girar('Direita')
     >>> direcao.valor
-    "Norte"
-    >>> direcao.girar_a_esquerda()
+    'Norte'
+    >>> direcao.girar('Esquerda')
     >>> direcao.valor
-    "Oeste"
-    >>> direcao.girar_a_esquerda()
+    'Oeste'
+    >>> direcao.girar('Esquerda')
     >>> direcao.valor
-    "Sul"
-    >>> direcao.girar_a_esquerda()
+    'Sul'
+    >>> direcao.girar('Esquerda')
     >>> direcao.valor
-    "Leste"
-    >>> direcao.girar_a_esquerda()
+    'Leste'
+    >>> direcao.girar('Esquerda')
     >>> direcao.valor
-    "Norte"
-    >>> carro = Carro(direcao,motor)
+    'Norte'
 """
 from pessoa import Pessoa
 
@@ -83,37 +82,33 @@ class Motor:
 class Direcao:
 
     def __init__(self):
-        self.valor = 0
+        self.valor = 'Norte'
 
-    def girar_a_direita(self):
-        self.valor = self.numero() + 1
-        self.valor = self.rosa_dos_ventos()
-
-    def girar_a_esquerda(self):
-        self.valor = numero(self.valor) -1
-        self.valor = rosa_dos_ventos(self.valor)
-
-    def numero(self):
-        if self.valor = "Norte":
+    def girar(self, direcao): #Converte direção em número
+        if self.valor == 'Norte':
             self.valor = 0
-        elif self.valor = "Leste":
+        elif self.valor == 'Leste':
             self.valor = 1
-        elif self.valor = "Sul":
+        elif self.valor == 'Sul':
             self.valor = 2
-        elif self.valor = "Oeste":
+        elif self.valor == 'Oeste':
             self.valor = 3
         else:
-            self.valor = "Direção inválida"
+            self.valor = 'Direção inválida'
 
-    def rosa_dos_ventos(self):
-        if self.valor % 4 = 0:
-            self.valor = "Norte"
-        elif self.valor % 4 = 1:
-            self.valor = "Leste"
-        elif self.valor % 4 = 2:
-            self.valor = "Sul"
-        elif self.valor % 4 = 3:
-            self.valor = "Oeste"
+        if direcao == 'Direita':
+            self.valor += 1
+        else:
+            self.valor -= 1
+
+        if self.valor % 4 == 0:
+            self.valor = 'Norte'
+        elif self.valor % 4 == 1:
+            self.valor = 'Leste'
+        elif self.valor % 4 == 2:
+            self.valor = 'Sul'
+        elif self.valor % 4 == 3:
+            self.valor = 'Oeste'
 
 class Carro:
     pneus = 5
@@ -121,10 +116,6 @@ class Carro:
     def __init__(self):
         self.motor = Motor
         self.direcao = Direcao
-        self.passageiros = list(Pessoa)
-
-    def check_direcao(self):
-        return self.direcao
 
     def virar_direita(self):
         self.direcao = self.direcao + 1
