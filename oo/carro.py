@@ -142,9 +142,12 @@ class Direcao:
 
 class Carro:
 
-    def __init__(self):
+    def __init__(self, direcao, motor):
         self.motor = Motor
         self.direcao = Direcao
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
 
     def girar(self,direcao):
         self.direcao = self.direcao + 1
