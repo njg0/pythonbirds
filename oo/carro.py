@@ -64,27 +64,27 @@ O   L
     >>> direcao.valor
     'Norte'
     >>> carro = Carro(direcao,motor)
-    >>> carro.calcular_velocidade
+    >>> carro.calcular_velocidade()
     0
     >>> carro.acelerar()
-    >>> carro.calcular_velocidade
+    >>> carro.calcular_velocidade()
     1
     >>> carro.acelerar()
-    >>> carro.calcular_velocidade
+    >>> carro.calcular_velocidade()
     2
     >>> carro.frear()
-    >>> carro.calcular_velocidade
+    >>> carro.calcular_velocidade()
     0
     >>> carro.calcular_direcao()
     'Norte'
     >>> carro.girar('Direita')
-    >>> carro.calcular_direcao
+    >>> carro.calcular_direcao()
     'Leste'
     >>> carro.girar('Esquerda')
-    >>> carro.calcular_direcao
+    >>> carro.calcular_direcao()
     'Norte'
     >>> carro.girar('Esquerda')
-    >>> carro.calcular_direcao
+    >>> carro.calcular_direcao()
     'Oeste'
 
 """
@@ -141,12 +141,12 @@ class Direcao:
 
 class Carro:
 
-    def __init__(self, motor, direcao):
+    def __init__(self, direcao, motor):
         self.motor = motor
         self.direcao = direcao
 
     def calcular_velocidade(self):
-        return self.motor.velocidade()
+        return self.motor.velocidade
 
     def girar(self, direcao):
         self.direcao.girar(direcao)
