@@ -5,7 +5,7 @@ class Pessoa:
         self.nome = nome
         self.filhos = list(filhos)
     def cumprimentar(self):
-        return f"Olá!{id(self)}"
+        return f"Olá! meu nome é {self.nome}"
 
     #metodos estáticos independem da instância
     @staticmethod
@@ -17,10 +17,15 @@ class Pessoa:
         return f'{cls} - olhos{cls.olhos}'
 
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_classe_pai}. Aperto de mão.'
+
+class Mutante(Pessoa):
+    olhos = 3
 
 if __name__ == "__main__":
-    renzo = Homem(nome = "Renzo")
+    renzo = Mutante(nome = "Renzo")
     luciano = Homem(renzo, nome='Luciano')
     #Luciano is a "pessoa" and has the complex attribute "filho" which is also a "pessoa"
     print(Pessoa.cumprimentar(luciano))
@@ -34,7 +39,6 @@ if __name__ == "__main__":
     del luciano.filhos
     #The good practice is to avoid creating dynamic attributes, but it might be useful in some contexts
     luciano.olhos=3
-    Pessoa.olhos = 1
     del luciano.olhos
     print(luciano.__dict__)
     print(renzo.__dict__)
@@ -49,3 +53,6 @@ if __name__ == "__main__":
     print(isinstance(pessoa, Homem))
     print(isinstance(renzo, Pessoa))
     print(isinstance(renzo, Homem))
+    print(renzo.olhos)
+    print(luciano.cumprimentar())
+    print(renzo.cumprimentar())
